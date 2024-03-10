@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        @import url('https://fonts.googleapis.com/css? family=roboto condensed');
+        html{
+            scroll-behavior:smooth;
+
+        }
+        body{
+            font-family:'roboto comndensed' , sans-serif;
+            margin:0;
+            background:#eee;
+            height:auto;
+        }
+        h1{
+            font-weight:400;
+            font-size:2.5rem;
+            text-transform:uppercase;
+            margin:0;
+
+        }
+        h2{
+            font-weight:400;
+            font-size: 1.2rem;
+            text-transform:capitalize;
+            margin: 0;
+        }
+        img{
+            display:block;
+            width:100%;
+        }
+        main{
+            max-width:900px;
+            margin:auto;
+            box-shadow: 30px,0px, 40px rgba(0,0,0,0.1), -30px,0px, 40px rgba(0,0,0,0.1);
+        }
+        #landing{
+            background:#fff;
+        }
+        #landing-text{
+            display:flex;
+            flex:0 1 40vw;
+            height:50vh;
+            justify-content:center;
+            align-items:center;
+            text-align:center;
+            padding-left: 1rem;
+            padding-right: 1rem;
+        }
+        #landing-text h2{
+            color:#888;
+        }
+        #landing-image{
+           
+            background-position:center;
+            background-size:cover;
+            background-repeat:no-repeat;
+            height:50vh;
+            flex:0 1 60vw;
+            margin:0;
+        }
+        .btn{
+            padding:0.5rem 2rem;
+            border:1px solid #ccc;
+            display:inline-block;
+            margin:2rem 0 0;
+            border-radius:50px;
+            text-decoration:none;
+            color:#333;
+            transition: 500ms ease;
+        }
+        .btn:hover{
+            background:#f4f4f4;
+
+
+        }
+        #header{
+            padding:1.5rem;
+            text-align:center;
+            background:#333;
+            color:#fff;
+
+        }
+        #header h2{
+            border-left:1px dotted #fff;
+            border-right:1px solid #fff;
+            display:inline-block;
+            padding-left:1rem;
+            padding-right:1rem;
+
+
+        }
+        .caption{
+            padding:0.8rem;
+            text-align: center;
+        }
+        footer{
+            text-align: center;
+            padding:2rem 1rem;
+            margin:auto;
+            color:#333;
+        }
+        footer h3{
+            font-size:3rem;
+            margin-bottom:0;
+
+        }
+        footer p a{
+            color:red;
+            text-decoration:none;
+        }
+        @media(min-width:31.25rem){
+            #landing{
+                display:flex;
+                height:100%;
+            }
+            #landing-text{
+                height:100vh;
+            }
+            #landing-image{
+                height:100vh;
+            }
+        }
+        @media(min-width:43.75rem){
+            .btn{
+                padding:1rem 3rem;
+            }
+        }
+    
+
+        
+    </style>
+    
+    <link rel="stylesheet" href="style.css">
+    <title>Photography Project</title>
+</head>
+<body>
+    <main>
+        <div>
+            <div id="landing">
+                <div id="landing-text">
+                    <div id="landing-text-inner">
+                        <h1> My Photography Website</h1>
+                        <h2> Beatyful Images</h2>
+                        <a ref="#images" class="btn" id="view-work"> View Work</a>
+                    </div>
+                </div>
+            </div>
+            <div id="landimg-images"></div>
+            
+
+        </div>
+        <div id="images">
+            <div id="header">
+                <h2> My Work</h2>
+        </div>
+        <img src="poshi5.jpg" alt="nature image">
+        <div class="caption">
+            <h3> Photo One</h3>
+            <p> lorem ispum dolor sit amet consectetur adipisizing elit. provident. error!</p>
+
+        </div>
+        <img src="poshi 1.jpeg" alt="nature image">
+        <div class="caption">
+            <h3> Photo Two</h3>
+            <p>lorem ispum dolor sit amet consectetur adipisizing elit. provident. error!</p>
+
+        </div>
+        <img src="poshi 2.jpeg" alt="nature image">
+        <div class="caption">
+            <h3> Photo Three</h3>
+            <p> lorem ispum dolor sit amet consectetur adipisizing elit. provident. error!</p>
+        </div>
+        <img src="poshi 3.jpeg" alt="nature image">
+        <div class="caption">
+            <h3> Photo Four</h3>
+            <p> lorem ispum dolor sit amet consectetur adipisizing elit. provident. error!</p>
+        </div>
+        <img src="poshi 4.jpeg" alt="nature image">
+
+    
+
+        
+    </main>
+    <footer>
+        <h3>Get In Touch</h3>
+        <p> Email or call us to set up a consult</p>
+        <p> Email:
+        <strong> contact@myphotographyproject.test</strong>
+        </P>
+        <P> Phone:
+            <a href="+354679999">
+                <strong> (+359) 555-5555</strong>
+            </a>
+        </P>
+
+    </footer>
+    
+</body>
+</html>
