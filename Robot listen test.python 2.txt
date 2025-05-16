@@ -1,0 +1,90 @@
+class Robot:
+    def _init_(self, robot_id):
+        self.robot_id = robot_id
+        self.position = (0, 0)  
+
+    def move(self, direction, steps, terrain):
+        x, y = self.position
+        direction_map = {
+            'N': (-1, 0),  
+            'S': (1, 0),   
+            'E': (0, 1),  
+            'W': (0, -1), 
+        }
+
+        if direction not in direction_map:
+            raise ValueError(f"Invalid direction: {direction}")
+
+        dx, dy = direction_map[direction]
+
+        for _ in range(steps):
+            x += dx
+            y += dy
+
+            if terrain.is_position_occupied(x, y):
+                print(f"Robot {self.robot_id} stopped at ({x - dx}, {y - dy}) due to occupation.")
+                break
+            else:
+
+            self.position = (x, y)
+            print(f"Robot {self.robot_id} moved to ({x}, {y})")
+
+class Terrain:
+    def _init_(self, rows, cols):
+        self.rows = rows
+        self.cols = cols
+        self.grid = [[None for _ in range(cols)] for _ in range(rows)]
+
+    def is_position_occupied(self, x, y):
+        if 0 <= x < self.rows and 0 <= y < self.cols:
+            return self.grid[x][y] is not None
+        return False
+
+    def place_robot(self, robot, x, y):
+        if self.is_position_occupied(x, y):
+            print(f"Position ({x}, {y}) is already occupied!")
+        else:
+            self.grid[x][y] = robot
+            robot.position = (x, y)
+            print(f"Robot {robot.robot_id} placed at ({x}, {y})")
+
+    def remove_robot(self, robot):
+        x, y = robot.position
+        self.grid[x][y] = None
+        print(f"Robot {robot.robot_id} removed from ({x}, {y})")
+
+    def display(self):
+        print("Current terrain state:")
+        for row in self.grid:
+            print(row)
+
+# Unit Tests
+import unittest
+
+class TestRobotMovement(unittest.TestCase):
+    def setUp(self):
+        self.terrain = Terrain(5, 5)  
+        self.robot1 = Robot(1)
+        self.robot2 = Robot(2)
+        self.terrain.place_robot(self.robot1, 0, 0)
+
+    def test_move_valid(self):
+        self.robot1.move('E', 2, self.terrain)  
+        self.assertEqual(self.robot1.position, (0, 2))
+
+    def test_move_occupied(self):
+        self.terrain.place_robot(self.robot2, 0, 1)  
+        self.robot1.move('E', 2, self.terrain)  
+        self.assertEqual(self.robot1.position, (0, 0))  
+
+    def test_invalid_direction(self):
+        with self.assertRaises(ValueError):
+            self.robot1.move('Z', 1, self.terrain)  
+
+    def test_boundary_check(self):
+        self.robot1.move('S', 5, self.terrain)  
+        self.assertEqual(self.robot1.position, (4, 0)) 
+
+if _name_ == "_main_":
+    unittest.main()
+    
